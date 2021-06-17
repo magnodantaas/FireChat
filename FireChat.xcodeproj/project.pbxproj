@@ -14,6 +14,9 @@
 		E4DFD2E8267AC71600624C6D /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E4DFD2E7267AC71600624C6D /* Assets.xcassets */; };
 		E4DFD2EB267AC71600624C6D /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E4DFD2E9267AC71600624C6D /* LaunchScreen.storyboard */; };
 		E4DFD2FA267AC7A900624C6D /* ConversationsControllers.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD2F9267AC7A900624C6D /* ConversationsControllers.swift */; };
+		E4DFD2FD267ADFC900624C6D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD2FC267ADFC900624C6D /* LoginController.swift */; };
+		E4DFD2FF267ADFD600624C6D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD2FE267ADFD600624C6D /* RegistrationController.swift */; };
+		E4DFD301267AE6F200624C6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD300267AE6F200624C6D /* Extensions.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -26,6 +29,9 @@
 		E4DFD2EA267AC71600624C6D /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E4DFD2EC267AC71600624C6D /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E4DFD2F9267AC7A900624C6D /* ConversationsControllers.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ConversationsControllers.swift; sourceTree = "<group>"; };
+		E4DFD2FC267ADFC900624C6D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
+		E4DFD2FE267ADFD600624C6D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
+		E4DFD300267AE6F200624C6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -78,6 +84,7 @@
 		E4DFD2F2267AC73C00624C6D /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				E4DFD300267AE6F200624C6D /* Extensions.swift */,
 			);
 			path = Utils;
 			sourceTree = "<group>";
@@ -122,6 +129,8 @@
 		E4DFD2FB267AD43500624C6D /* Authentication */ = {
 			isa = PBXGroup;
 			children = (
+				E4DFD2FC267ADFC900624C6D /* LoginController.swift */,
+				E4DFD2FE267ADFD600624C6D /* RegistrationController.swift */,
 			);
 			path = Authentication;
 			sourceTree = "<group>";
@@ -198,8 +207,11 @@
 			files = (
 				E4DFD2E3267AC71500624C6D /* ViewController.swift in Sources */,
 				E4DFD2DF267AC71500624C6D /* AppDelegate.swift in Sources */,
+				E4DFD301267AE6F200624C6D /* Extensions.swift in Sources */,
 				E4DFD2FA267AC7A900624C6D /* ConversationsControllers.swift in Sources */,
 				E4DFD2E1267AC71500624C6D /* SceneDelegate.swift in Sources */,
+				E4DFD2FF267ADFD600624C6D /* RegistrationController.swift in Sources */,
+				E4DFD2FD267ADFC900624C6D /* LoginController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
