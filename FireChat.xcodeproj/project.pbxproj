@@ -92,6 +92,7 @@
 		E4DFD2F5267AC75500624C6D /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				E4DFD2FB267AD43500624C6D /* Authentication */,
 				E4DFD2F9267AC7A900624C6D /* ConversationsControllers.swift */,
 			);
 			path = Controller;
@@ -116,6 +117,13 @@
 			children = (
 			);
 			path = Model;
+			sourceTree = "<group>";
+		};
+		E4DFD2FB267AD43500624C6D /* Authentication */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Authentication;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
