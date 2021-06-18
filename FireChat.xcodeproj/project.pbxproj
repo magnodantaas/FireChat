@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -12,6 +12,7 @@
 		E410D622267BC60500A857CA /* LoginViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E410D621267BC60500A857CA /* LoginViewModel.swift */; };
 		E410D624267BC60D00A857CA /* RegisterViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = E410D623267BC60D00A857CA /* RegisterViewModel.swift */; };
 		E410D627267C008300A857CA /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E410D626267C008300A857CA /* GoogleService-Info.plist */; };
+		E410D629267C35D700A857CA /* AuthService.swift in Sources */ = {isa = PBXBuildFile; fileRef = E410D628267C35D700A857CA /* AuthService.swift */; };
 		E4DFD2DF267AC71500624C6D /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD2DE267AC71500624C6D /* AppDelegate.swift */; };
 		E4DFD2E1267AC71500624C6D /* SceneDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD2E0267AC71500624C6D /* SceneDelegate.swift */; };
 		E4DFD2E3267AC71500624C6D /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD2E2267AC71500624C6D /* ViewController.swift */; };
@@ -34,6 +35,7 @@
 		E410D621267BC60500A857CA /* LoginViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginViewModel.swift; sourceTree = "<group>"; };
 		E410D623267BC60D00A857CA /* RegisterViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegisterViewModel.swift; sourceTree = "<group>"; };
 		E410D626267C008300A857CA /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E410D628267C35D700A857CA /* AuthService.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthService.swift; sourceTree = "<group>"; };
 		E4DFD2DB267AC71500624C6D /* FireChat.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = FireChat.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		E4DFD2DE267AC71500624C6D /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		E4DFD2E0267AC71500624C6D /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -74,7 +76,6 @@
 				CBE02CE110BF55B660C99B35 /* Pods-FireChat.debug.xcconfig */,
 				71B0F9C192EF6B0C2BD22C45 /* Pods-FireChat.release.xcconfig */,
 			);
-			name = Pods;
 			path = Pods;
 			sourceTree = "<group>";
 		};
@@ -137,6 +138,7 @@
 		E4DFD2F4267AC75100624C6D /* API */ = {
 			isa = PBXGroup;
 			children = (
+				E410D628267C35D700A857CA /* AuthService.swift */,
 			);
 			path = API;
 			sourceTree = "<group>";
@@ -301,6 +303,7 @@
 				E4DFD2E3267AC71500624C6D /* ViewController.swift in Sources */,
 				E410D61E267B7E7300A857CA /* InputContainerView.swift in Sources */,
 				E4DFD2DF267AC71500624C6D /* AppDelegate.swift in Sources */,
+				E410D629267C35D700A857CA /* AuthService.swift in Sources */,
 				E4DFD301267AE6F200624C6D /* Extensions.swift in Sources */,
 				E410D624267BC60D00A857CA /* RegisterViewModel.swift in Sources */,
 				E4DFD2FA267AC7A900624C6D /* ConversationsControllers.swift in Sources */,

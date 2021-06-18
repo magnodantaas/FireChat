@@ -6,6 +6,8 @@
 //
 
 import UIKit
+import Firebase
+import JGProgressHUD
 
 protocol AuthenticationControllerProtocol {
     func checkFormStatus()
@@ -76,11 +78,6 @@ class LoginController: UIViewController {
     
     // MARK: - Selector
     
-    @objc func handleShowSignUP() {
-        let controller = RegistrationController()
-        navigationController?.pushViewController(controller, animated: true)
-    }
-    
     @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
@@ -88,11 +85,32 @@ class LoginController: UIViewController {
             viewModel.password = sender.text
         }
         
-//        checkFormStatus()
+        checkFormStatus()
+    }
+    
+    // MARK: - API
+    
+    @objc func handleShowSignUP() {
+        let controller = RegistrationController()
+        navigationController?.pushViewController(controller, animated: true)
     }
     
     @objc func handleLogin() {
-        print("DEBUG: Handle Log In")
+        guard let email = emailTextField.text else { return }
+        guard let password = passwordTextField.text else { return }
+        
+       showLoader(true, withText: "Loggin in")
+        
+        AuthService.shared.logUserIn(withEmail: email, password: password) { result, error in
+            if let error = error {
+                print("DEBUG: Failed to login with error \(error.localizedDescription)")
+                self.showLoader(false)
+                return
+            }
+            
+            self.showLoader(false)
+            self.dismiss(animated: true, completion: nil)
+        }
     }
     
     // MARK: - Helpers
@@ -105,7 +123,7 @@ class LoginController: UIViewController {
         
         view.addSubview(iconImage)
         
-//        Way with view code
+//        Simple Way
         iconImage.centerX(inView: view)
         iconImage.anchor(top: view.safeAreaLayoutGuide.topAnchor, paddingTop: 32)
         iconImage.setDimensions(height: 120, width: 120)

@@ -6,12 +6,14 @@
 //
 
 import UIKit
+import Firebase
 
 class RegistrationController: UIViewController {
     
     // MARK: - Properties
     
     private var viewModel = RegisterViewModel()
+    private var profileImage: UIImage?
     
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -69,6 +71,7 @@ class RegistrationController: UIViewController {
         button.setTitleColor(.white, for: .normal)
         button.isEnabled = false
         button.setHeight(height: 50)
+        button.addTarget(self, action: #selector(handleRegistration), for: .touchUpInside)
         return button
     }()
     
@@ -105,6 +108,18 @@ class RegistrationController: UIViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    @objc func keyboardWillShow() {
+        if view.frame.origin.y == 0 {
+            view.frame.origin.y -= 88
+        }
+    }
+    
+    @objc func keyboardWillHide() {
+        if view.frame.origin.y != 0 {
+            view.frame.origin.y = 0
+        }
+    }
+    
     @objc func textDidChange(sender: UITextField) {
         if sender == emailTextField {
             viewModel.email = sender.text
@@ -117,6 +132,30 @@ class RegistrationController: UIViewController {
         }
         
         checkFormStatus()
+    }
+    
+    // MARK: - API
+    
+    @objc func handleRegistration() {
+        guard let email = emailTextField.text else { return }
+        guard let fullname = fullnameTextField.text else { return }
+        guard let username = usernameTextField.text?.lowercased() else { return }
+        guard let password = passwordTextField.text else { return }
+        guard let profileImage = profileImage else { return }
+        showLoader(true, withText: "Register user")
+        
+        let registrationCredentials = RegistrationCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
+        
+        AuthService.shared.createUser(credentials: registrationCredentials) { error in
+            self.showLoader(false)
+            if let error = error {
+                print("DEBUG: Failed to register new user with error \(error.localizedDescription)")
+                return
+            }
+            
+            self.dismiss(animated: true, completion: nil)
+        }
+        
     }
     
     // MARK: - Helpers
@@ -146,6 +185,10 @@ class RegistrationController: UIViewController {
         fullnameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         usernameTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
         passwordTextField.addTarget(self, action: #selector(textDidChange), for: .editingChanged)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillShow), name: UIResponder.keyboardWillShowNotification, object: nil)
+        
+        NotificationCenter.default.addObserver(self, selector: #selector(keyboardWillHide), name: UIResponder.keyboardWillHideNotification, object: nil)
     }
     
 }
@@ -156,6 +199,9 @@ extension RegistrationController: UIImagePickerControllerDelegate, UINavigationC
     func imagePickerController(_ picker: UIImagePickerController,
                                didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
         let image = info[.originalImage] as? UIImage
+        profileImage = image
+        viewModel.profileImage = image
+        checkFormStatus()
         plusPhotoButton.setImage(image?.withRenderingMode(.alwaysOriginal), for: .normal)
         plusPhotoButton.layer.borderColor = UIColor.white.cgColor
         plusPhotoButton.layer.borderWidth = 3.0
