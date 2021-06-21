@@ -23,6 +23,8 @@
 		E4DFD2FD267ADFC900624C6D /* LoginController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD2FC267ADFC900624C6D /* LoginController.swift */; };
 		E4DFD2FF267ADFD600624C6D /* RegistrationController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD2FE267ADFD600624C6D /* RegistrationController.swift */; };
 		E4DFD301267AE6F200624C6D /* Extensions.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4DFD300267AE6F200624C6D /* Extensions.swift */; };
+		E4FF000026802AEE00C62151 /* NewMessageController.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FFFFFF26802AEE00C62151 /* NewMessageController.swift */; };
+		E4FF00022680373A00C62151 /* UserCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = E4FF00012680373A00C62151 /* UserCell.swift */; };
 		F42A49E5CE0CA5F3291E7A2D /* Pods_FireChat.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 750226D3E3EAC941B8023358 /* Pods_FireChat.framework */; };
 /* End PBXBuildFile section */
 
@@ -48,6 +50,8 @@
 		E4DFD2FC267ADFC900624C6D /* LoginController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginController.swift; sourceTree = "<group>"; };
 		E4DFD2FE267ADFD600624C6D /* RegistrationController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegistrationController.swift; sourceTree = "<group>"; };
 		E4DFD300267AE6F200624C6D /* Extensions.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extensions.swift; sourceTree = "<group>"; };
+		E4FF00012680373A00C62151 /* UserCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserCell.swift; sourceTree = "<group>"; };
+		E4FFFFFF26802AEE00C62151 /* NewMessageController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NewMessageController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -148,6 +152,7 @@
 			children = (
 				E4DFD2FB267AD43500624C6D /* Authentication */,
 				E4DFD2F9267AC7A900624C6D /* ConversationsControllers.swift */,
+				E4FFFFFF26802AEE00C62151 /* NewMessageController.swift */,
 			);
 			path = Controller;
 			sourceTree = "<group>";
@@ -165,6 +170,7 @@
 			children = (
 				E410D61D267B7E7300A857CA /* InputContainerView.swift */,
 				E410D61F267B82F600A857CA /* CustomTextField.swift */,
+				E4FF00012680373A00C62151 /* UserCell.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -306,6 +312,8 @@
 				E410D629267C35D700A857CA /* AuthService.swift in Sources */,
 				E4DFD301267AE6F200624C6D /* Extensions.swift in Sources */,
 				E410D624267BC60D00A857CA /* RegisterViewModel.swift in Sources */,
+				E4FF00022680373A00C62151 /* UserCell.swift in Sources */,
+				E4FF000026802AEE00C62151 /* NewMessageController.swift in Sources */,
 				E4DFD2FA267AC7A900624C6D /* ConversationsControllers.swift in Sources */,
 				E4DFD2E1267AC71500624C6D /* SceneDelegate.swift in Sources */,
 				E4DFD2FF267ADFD600624C6D /* RegistrationController.swift in Sources */,
