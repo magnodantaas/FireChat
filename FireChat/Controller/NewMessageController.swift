@@ -9,11 +9,16 @@ import UIKit
 
 private let reuseIdentifier = "UserCell"
 
+protocol NewMessageControllerDelegate: AnyObject {
+    func controller(_ controller: NewMessageController, wantsToStartChatWith user: User)
+}
+
 class NewMessageController: UITableViewController {
     
     // MARK: - Properties
     
     private var users = [User]()
+    weak var delegate: NewMessageControllerDelegate?
     
     // MARK: - LifeCycle
     
@@ -29,7 +34,7 @@ class NewMessageController: UITableViewController {
         navigationController?.dismiss(animated: true, completion: nil)
     }
     
-    // MARK: -API
+    // MARK: - API
     
     func fetchUsers() {
         Service.fetchUsers { users in
@@ -63,5 +68,13 @@ extension NewMessageController {
         let cell = tableView.dequeueReusableCell(withIdentifier: reuseIdentifier, for: indexPath) as! UserCell
         cell.user = users[indexPath.row]
         return cell
+    }
+}
+
+// MARK: - UITableViewDelegate
+
+extension NewMessageController {
+    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        delegate?.controller(self, wantsToStartChatWith: users[indexPath.row])
     }
 }

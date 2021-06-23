@@ -9,6 +9,8 @@ import UIKit
 
 class InputContainerView: UIView {
     
+    // MARK: -LifeCycle
+    
     init(image: UIImage?, textField: UITextField) {
         super.init(frame: .zero)
         setHeight(height: 50)
