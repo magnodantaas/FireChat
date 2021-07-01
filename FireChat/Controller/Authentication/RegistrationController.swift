@@ -14,6 +14,7 @@ class RegistrationController: UIViewController {
     
     private var viewModel = RegisterViewModel()
     private var profileImage: UIImage?
+    weak var delegate: AuthenticationDelegate?
     
     private let plusPhotoButton: UIButton = {
         let button = UIButton(type: .system)
@@ -147,13 +148,13 @@ class RegistrationController: UIViewController {
         let registrationCredentials = RegistrationCredentials(email: email, password: password, fullname: fullname, username: username, profileImage: profileImage)
         
         AuthService.shared.createUser(credentials: registrationCredentials) { error in
-            self.showLoader(false)
             if let error = error {
-                print("DEBUG: Failed to register new user with error \(error.localizedDescription)")
+                self.showLoader(false)
+                self.showError(error.localizedDescription)
                 return
             }
             
-            self.dismiss(animated: true, completion: nil)
+            self.delegate?.authenticationComplete()
         }
         
     }

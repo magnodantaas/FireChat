@@ -7,9 +7,21 @@
 
 import UIKit
 
+protocol ProfileHeaderDelegate: AnyObject {
+    func dismissController()
+}
+
 class ProfileHeader: UIView {
     
     // MARK: - Properties
+    
+    var user: User? {
+        didSet {
+            populateUserData()
+        }
+    }
+    
+    weak var delegate: ProfileHeaderDelegate?
     
     private let dismissButton: UIButton = {
         let button = UIButton(type: .system)
@@ -34,7 +46,6 @@ class ProfileHeader: UIView {
         label.font = UIFont.boldSystemFont(ofSize: 20)
         label.textColor = .white
         label.textAlignment = .center
-        label.text = "TEST"
         return label
     }()
     
@@ -43,7 +54,6 @@ class ProfileHeader: UIView {
         label.font = UIFont.systemFont(ofSize: 16)
         label.textColor = .white
         label.textAlignment = .center
-        label.text = "TEST"
         return label
     }()
     
@@ -60,10 +70,19 @@ class ProfileHeader: UIView {
     // MARK: - Selectors
     
     @objc func handleDismiss() {
-        
+        delegate?.dismissController()
     }
     
     // MARK: - Helpers
+    
+    func populateUserData() {
+        guard let user = user else { return }
+        guard let url = URL(string: user.profileImageUrl) else { return }
+        
+        fullnameLabel.text = user.fullname
+        usernameLabel.text = "@" + user.username
+        profileImageView.sd_setImage(with: url)
+    }
     
     override func layoutSubviews() {
         super.layoutSubviews()
@@ -97,6 +116,6 @@ class ProfileHeader: UIView {
         addSubview(stack)
         stack.centerX(inView: self)
         stack.anchor(top: profileImageView.bottomAnchor, paddingTop: 16)
-    
+        
     }
 }
